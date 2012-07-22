@@ -23,5 +23,14 @@ describe "StaticPages" do
       page. should have_content('About SPInfoLtd')
     end  
   end
+  describe "title home page" do
+      it "title home page" do
+        visit '/staitc_pages/home'
+        page. should have_selector('', 
+          :text  => "SpInfoLtd | Home"
+          )
+      end
+  end
+
 end
 
