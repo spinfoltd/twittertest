@@ -11,7 +11,6 @@
 </head>
 <body>
 	<h2>Title::=> SPInfo Ltd : <%= yield(:title)%></h2>
-
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <%= link_to "sample app", '#', id: "logo" %>
@@ -34,9 +33,10 @@
   </h2>
   <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
 </div>
+
 <div class="container"> 
-  <%= yeild %>
+  <%= yield %>
 </div>
-<%= link_to image_tag("rails.png", alt: "Rails"") , 'http://rubyonrails.org/' %>
+  <%= link_to image_tag("rails.png", alt: "Rails") , 'http://rubyonrails.org/' %>
 </body>
 </html>
