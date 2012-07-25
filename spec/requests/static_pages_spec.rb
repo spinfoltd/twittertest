@@ -1,36 +1,36 @@
 require 'spec_helper'
-
-describe "StaticPages" do
-=begin
-  describe "GET /static_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get static_pages_index_path
-      response.status.should be(200)
-    end
-  end
-=end
+subject{page}
+describe "StaticPages" do  
   describe "Home page" do
-    it "should have the contents 'SPInfoLtd'" do
-      visit '/static_pages/home'
-      page.should have_content('SPInfoLtd')
+    before {vist root_path}
+    it "should have title 'SPInfoLtd'" do      
+      should have_content(full_title(''))
+    end    
+    it "should have title 'spInfoLtd : Home'" do
+      visit root_path
+      should have_selector('title',:text  => full_title('Home'))
     end
-  end
-
-  describe "AboutUs Page redition" do
-    it "Shout have the contents 'About SPInfoLtd'" do
-      visit '/static_pages/about'
-      page. should have_content('About SPInfoLtd')
-    end  
-  end
-  describe "title home page" do
-      it "title home page" do
-        visit '/staitc_pages/home'
-        page. should have_selector('', 
-          :text  => "SpInfoLtd | Home"
-          )
+    it "title home page" do
+        visit root_path
+        page. should have_selector('title',:text  => full_title('Home'))
       end
   end
 
+  describe "About Page" do
+    before {vist about_path}
+    it "Shout have the contents 'About SPInfoLtd'" do      
+      should have_content('About SPInfoLtd')
+    end  
+  end  
+  describe "Contact Page"do
+    before {visit contact_path}
+    it "Contact Page h1" do
+      visit contact_path
+      should have_selector('h1' , text: 'contact')
+    end  
+    it "Contact Page h1" do      
+      should have_content('title' , text: full_title('Content'))
+    end
+  end
 end
 
